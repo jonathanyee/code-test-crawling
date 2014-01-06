@@ -15,8 +15,8 @@ months.
 
 ### Requirements ###
 
-Your mission is to write a program that pulls gloves from the "Free People" website: http://www.freepeople.com/accessories-gloves-2/ 
-(there are about 15 gloves total).
+Your mission is to write a program that pulls scarves from the "Free People" website: http://www.freepeople.com/scarves-3/ 
+(there are about 13 scarves total).
 
 Your program should download and store the **name, photo, price, url, available colors, and description** for
 each of these products. _Note: You will need to get the description from the details page for each product._
