@@ -16,16 +16,10 @@ angular.module('FreePeople.filters', []).
 
       switch (filter.id) {
         case NameASC:
-          return scarves.sort(function(a,b) {
-            if (a.name < b.name) return -1;
-            if (a.name > b.name) return 1;
-            return 0;
-          });
+          return scarves.sort(sortByName);
         case NameDSC:
           return scarves.sort(function(a,b) {
-            if (a.name > b.name) return -1;
-            if (a.name < b.name) return 1;
-            return 0;
+            return sortByName(b, a);
           });
         case PriceASC:
           return scarves.sort(function(a,b) {
@@ -34,9 +28,7 @@ angular.module('FreePeople.filters', []).
 
             if (priceA - priceB === 0) {
               // if same price, sort by name
-              if (a.name < b.name) return -1;
-              if (a.name > b.name) return 1;
-              return 0;
+              return sortByName(a, b);
             } else {
               return priceA - priceB;
             }
@@ -48,13 +40,17 @@ angular.module('FreePeople.filters', []).
 
             if (priceB - priceA === 0) {
               // if same price, sort by name
-              if (a.name < b.name) return -1;
-              if (a.name > b.name) return 1;
-              return 0;
+              return sortByName(a, b);
             } else {
               return priceB - priceA;
             }
           });
       }
     };
+
+    function sortByName(a, b) {
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
+      return 0;
+    }
   });
