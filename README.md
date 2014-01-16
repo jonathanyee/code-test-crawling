@@ -1,3 +1,19 @@
+# Author: Jonathan Yee #
+## January 8, 2014 ##
+
+# How to run #
+
+## Scrapy (Not necessary, data.json is included) ##
+* `cd freepeople`
+* `rm data.json` (if you don't delete, the command on the next line will append to data.json, which we do not want)
+* `scrapy crawl scarves -o data.json -t json` (json file must be named data.json)
+* `cd ..`
+
+## To run the app ##
+* `python -m SimpleHTTPServer`
+* http://localhost:8000/app/#/
+
+
 ## Software Engineer - Crawling / Frontend Code Test ##
 
 [ZipfWorks](http://www.zipfworks.com/) is currently seeking a software engineer to help with our frontend 

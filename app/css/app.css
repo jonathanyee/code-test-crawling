@@ -1,0 +1,35 @@
+.scarves {
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.scarves::after {
+  clear: both;
+  display: block;
+  content: '';
+}
+
+.scarf {
+  float: left;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 250px;
+  height: 550px;
+  overflow: hidden;
+}
+
+li.scarf h2, 
+li.scarf h3 {
+  margin: 5px 0 0 0;
+}
+
+li.scarf p {
+  color: #333;
+}
+
+.filter {
+  padding-left: 10px;
+}

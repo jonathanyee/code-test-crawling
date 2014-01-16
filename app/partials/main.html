@@ -1,0 +1,18 @@
+<div class="row filter">
+  Filter Scarves: <select ng-model="filter" ng-options="f.name for f in filters" ng-change="applyFilter()"></select>
+</div>
+
+<div class="row">
+    <ul class="scarves">
+        <li class="scarf" ng-repeat="scarf in scarves | sortScarves:filter">
+          <a ng-href="{{scarf.url}}">
+            <img ng-src="{{scarf.photo}}" />
+            <h2>{{scarf.name}}</h2>
+          </a>
+
+          <h3>{{scarf.price}}</h3>
+          <p>{{scarf.description}}</p>
+
+        </li>
+    </ul>
+</div>
