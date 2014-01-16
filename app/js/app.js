@@ -5,8 +5,6 @@
 angular.module('FreePeople', [
   'ngRoute',
   'FreePeople.filters',
-  'FreePeople.services',
-  'FreePeople.directives',
   'FreePeople.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {

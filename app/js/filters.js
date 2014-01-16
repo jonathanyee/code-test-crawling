@@ -4,42 +4,57 @@
 
 angular.module('FreePeople.filters', []).
   filter('sortScarves', function() {
+    var NameASC = 0,
+        NameDSC = 1,
+        PriceASC = 2,
+        PriceDSC = 3;
+
     return function(scarves, filter) {
       if (scarves === undefined || filter === undefined) {
         return;
       }
-      var list = [];
+
       switch (filter.id) {
-        case 0:
-          // name asc
-          list = scarves.sort(function(a,b) {
+        case NameASC:
+          return scarves.sort(function(a,b) {
             if (a.name < b.name) return -1;
             if (a.name > b.name) return 1;
             return 0;
           });
-          break;
-        case 1:
-          // name dsc
-          list = scarves.sort(function(a,b) {
+        case NameDSC:
+          return scarves.sort(function(a,b) {
             if (a.name > b.name) return -1;
             if (a.name < b.name) return 1;
             return 0;
           });
-          break;
-        case 2:
-          // price asc
-          list = scarves.sort(function(a,b) {
-            return parseFloat(a.price.replace('$', '')) - parseFloat(b.price.replace('$', ''));
+        case PriceASC:
+          return scarves.sort(function(a,b) {
+            var priceA = parseFloat(a.price.replace('$', '')),
+                priceB = parseFloat(b.price.replace('$', ''));
+
+            if (priceA - priceB === 0) {
+              // if same price, sort by name
+              if (a.name < b.name) return -1;
+              if (a.name > b.name) return 1;
+              return 0;
+            } else {
+              return priceA - priceB;
+            }
           });
-          break;
-        case 3:
-          // price dsc
-          list = scarves.sort(function(a,b) {
-            return parseFloat(b.price.replace('$', '')) - parseFloat(a.price.replace('$', ''));
+        case PriceDSC:
+          return scarves.sort(function(a,b) {
+            var priceA = parseFloat(a.price.replace('$', '')),
+                priceB = parseFloat(b.price.replace('$', ''));
+
+            if (priceB - priceA === 0) {
+              // if same price, sort by name
+              if (a.name < b.name) return -1;
+              if (a.name > b.name) return 1;
+              return 0;
+            } else {
+              return priceB - priceA;
+            }
           });
-          break;
       }
-      console.log(list);
-      return list;
     };
   });

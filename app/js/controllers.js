@@ -12,9 +12,6 @@ angular.module('FreePeople.controllers', []).
                     {name: 'Sort by Price DSC', id: 3},
                 ];
         $scope.filter = $scope.filters[0];
-        $scope.applyFilter = function() {
-            console.log($scope.filter);
-        };
 
         $http.get('http://localhost:8000/freepeople/data.json').
             success(function(data) {
